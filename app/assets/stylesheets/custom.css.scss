@@ -24,7 +24,7 @@ $navbar-default-bg: black;
 .jumbotron {
   background-image: asset-url('ladybird-webpage-background.jpg');
   background-size: cover;
-  height: 800px;
+  height: 900px;
 }
 
 .jumbotron h1 {
@@ -52,6 +52,10 @@ $navbar-default-bg: black;
   border-top: 1px solid #eaeaea;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+.col-xs-offset-right-1 {
+  margin-right: 10%;
 }
 
 footer {
