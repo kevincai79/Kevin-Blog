@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "Welcome to Kevin's Blog #{@user.username}"
+      trigger_sms_alerts(@user)
       redirect_to user_path(@user)
     else
       render 'new'
@@ -65,6 +66,29 @@ class UsersController < ApplicationController
     if logged_in? && !current_user.admin?
       flash[:danger] = "Only admin can perform that action"
       redirect_to root_path
+    end
+  end
+
+  def send_message(phone_number, alert_message)
+
+      @twilio_number = ENV['TWILIO_NUMBER']
+      @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+
+      message = @client.api.account.messages.create(
+        :from => @twilio_number,
+        :to => phone_number,
+        :body => alert_message,
+      )
+      puts message.to
+  end
+
+  def trigger_sms_alerts(new_user)
+      @alert_message = "A new user with username #{new_user.username} just signed up for the blog, this user's email is #{new_user.email}"
+
+      @admin_list = YAML.load_file('config/administrators.yml')
+      @admin_list.each do |admin|
+      phone_number = admin['phone_number']
+      send_message(phone_number, @alert_message)
     end
   end
 end
