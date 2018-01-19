@@ -79,7 +79,7 @@ class UsersController < ApplicationController
         :to => phone_number,
         :body => alert_message,
       )
-      puts message.to
+      # puts message.to
   end
 
   def trigger_sms_alerts(new_user)
