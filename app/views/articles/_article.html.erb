@@ -9,8 +9,9 @@
         <%= truncate(article.description, length: 100) %>
         <div class="article-meta-details">
           <small>Created by: <%= article.user.username %>,
-            <%= time_ago_in_words(article.created_at) %> ago,
-            Last updated: <%= time_ago_in_words(article.updated_at) %> ago
+            <%= article.created_at.localtime.strftime('%m-%e-%y %H:%M') %>,
+            Last updated: <%= article.updated_at.localtime.strftime('%m-%e-%y %H:%M') %>
+            <!-- <%= time_ago_in_words(article.created_at) %> ago -->
           </small>
         </div>
       </div>
