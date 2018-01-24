@@ -2,7 +2,7 @@
 
 <% if logged_in? && current_user.admin? %>
   <div class="row center">
-    <span class="badge"><%= link_to "Edit category name", edit_category_path(@category) %></span>
+    <span class="badge"><%= link_to "Edit category name", edit_category_path(@category) %></span> <span class="badge"><%= link_to "Delete category", category_path(@category), method: :delete %></span>
   </div>
 <% end %>
 <div align="center">
