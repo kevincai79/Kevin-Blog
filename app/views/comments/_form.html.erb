@@ -1,0 +1,21 @@
+<%= render 'shared/errors', obj: @article_comment %>
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_for([@article_comment.article,@article_comment], :html => {class: "form-horizontal", role: "form" }) do |f| %>
+
+      <div class="form-group">
+
+        <div class="col-sm-12">
+          <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "Your comment here", autofocus: true  %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <%= f.submit class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
