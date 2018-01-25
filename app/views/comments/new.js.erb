@@ -1,1 +1,1 @@
-$(".add-comment-form").replaceWith("<%= j render 'form' %>");
+$(".add-comment-form").html("<%= j render 'form', obj: @article_comment %>");
