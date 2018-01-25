@@ -1,0 +1,14 @@
+<div class="comments">
+  <% if obj.comments.any?  %>
+      <% obj.comments.each do |comment| %>
+      <ul class="listing">
+        <li><p><%= comment.content %></p></li>
+        <li><small class="comment-meta-details">Commented by <%= link_to "#{User.find(comment.user_id).username}", user_path(User.find(comment.user_id))%> at <%= comment.updated_at.localtime.strftime('%m-%e-%y %H:%M') %></small></li>
+      </ul>
+      <% end %>
+  <% end %>
+</div>
+
+<div class="add-comment-form">
+  <%= link_to 'Add comment', new_article_comment_path(obj), remote: true, class: 'submit-comment' %>
+</div>

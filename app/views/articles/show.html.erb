@@ -18,23 +18,11 @@
   <hr />
   <%= simple_format(@article.description) %>
   <hr />
-  <div class="comments">
-    <% if @article.comments.any?  %>
-      <p>
-        <% @article.comments.each do |comment| %>
-        <ul class="listing">
-          <li><p><%= comment.content %></p></li>
-          <li><small class="comment-meta-details">Commented by <%= link_to "#{User.find(comment.user_id).username}", user_path(User.find(comment.user_id))%> at <%= comment.updated_at.localtime.strftime('%m-%e-%y %H:%M') %></small></li>
-        </ul>
-        <% end %>
-      </p>
-    <% end %>
-  </div>
-  <div class="add-comment-form">
-    <%= link_to 'Add comment', new_article_comment_path(@article), remote: true %>
+  <div class="comment-session">
+      <%= render 'comments/comment', obj: @article %>
   </div>
   <hr />
-  <!-- <button id="close-show">Add comment</button> -->
+
   <% if @article.categories.any? %>
     <p><strong>Categories:</strong> <%= render @article.categories %></p>
   <% end %>
