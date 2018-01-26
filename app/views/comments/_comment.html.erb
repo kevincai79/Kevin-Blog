@@ -6,8 +6,8 @@
           <li><p><%= comment.content %></p></li>
           <% if logged_in? && (current_user.admin? || comment.user_id == current_user.id) %>
           <div class="comment-buttons">
-            <%= link_to "Edit comment", edit_comment_path(comment),
-                                              class: "comment-button btn-xs btn-primary" %>
+            <!-- <%= link_to "Edit comment", edit_comment_path(comment),
+                                              class: "comment-button btn-xs btn-primary" %> -->
             <%= link_to "Delete comment", comment_path(comment),
                                                 method: :delete,
                                                 class: "comment-button btn-xs btn-danger" %>
