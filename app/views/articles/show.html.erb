@@ -17,6 +17,12 @@
   <h4 class="center description"><strong>Description:</strong></h4>
   <hr />
   <%= simple_format(@article.description) %>
+  <hr />
+  <div class="comment-session">
+      <%= render 'comments/comment', obj: @article %>
+  </div>
+  <hr />
+
   <% if @article.categories.any? %>
     <p><strong>Categories:</strong> <%= render @article.categories %></p>
   <% end %>

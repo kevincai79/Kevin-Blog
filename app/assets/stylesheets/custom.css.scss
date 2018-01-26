@@ -43,6 +43,12 @@ $navbar-default-bg: black;
   font-style: italic;
 }
 
+.comment-meta-details {
+  margin-top: 5px;
+  color: #c49507;
+  font-style: italic;
+}
+
 .article-actions {
   border-top: 1px solid #eaeaea;
   padding-top: 5px;
@@ -88,6 +94,15 @@ $navbar-default-bg: black;
 
 .category {
   margin-bottom: 10px;
+}
+
+.comment {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.comment-button {
+  letter-spacing: 0px;
+  font-size: .6em;
 }
 
 footer {

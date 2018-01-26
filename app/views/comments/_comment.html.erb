@@ -1,0 +1,28 @@
+<div class="comments">
+  <% if obj.comments.any?  %>
+      <% obj.comments.each do |comment| %>
+      <ul class="listing">
+        <div class="comment">
+          <li id="comment<%= comment.id %>"><p><%= comment.content %></p></li>
+          <% if logged_in? && (current_user.admin? || comment.user_id == current_user.id) %>
+          <div class="comment-buttons">
+            <%= link_to "Edit comment", edit_comment_path(comment),
+                                              remote: true,
+                                              class: "comment-button btn-xs btn-primary" %>
+            <%= button_to "Delete comment", comment_path(comment),
+                                                remote: true,
+                                                method: :delete,
+                                                class: "comment-button btn-xs btn-danger" %>
+          </div>
+          <% end %>
+          <li><small class="comment-meta-details">Commented by <%= link_to "#{User.find(comment.user_id).username}", user_path(User.find(comment.user_id))%> at <%= comment.updated_at.localtime.strftime('%m-%e-%y %H:%M') %></small></li>
+        </div>
+      </ul>
+      <% end %>
+  <% end %>
+</div>
+<% if logged_in? %>
+  <div class="add-comment-form">
+    <%= link_to 'Add comment', new_article_comment_path(obj), remote: true, class: 'submit-comment' %>
+  </div>
+<% end %>
