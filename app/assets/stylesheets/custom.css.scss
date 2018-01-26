@@ -50,7 +50,6 @@ $navbar-default-bg: black;
 }
 
 .article-actions {
-  border-top: 1px solid #eaeaea;
   padding-top: 5px;
 }
 
@@ -99,6 +98,11 @@ $navbar-default-bg: black;
 
 .category {
   margin-bottom: 10px;
+}
+
+.categories {
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 10px;
 }
 
 .comment {
