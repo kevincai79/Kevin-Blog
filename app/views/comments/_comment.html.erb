@@ -12,6 +12,7 @@
             <%= button_to "Delete comment", comment_path(comment),
                                                 remote: true,
                                                 method: :delete,
+                                                form_class: 'form',
                                                 class: "comment-button btn-xs btn-danger" %>
           </div>
           <% end %>
