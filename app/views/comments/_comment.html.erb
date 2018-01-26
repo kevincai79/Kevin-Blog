@@ -3,11 +3,12 @@
       <% obj.comments.each do |comment| %>
       <ul class="listing">
         <div class="comment">
-          <li><p><%= comment.content %></p></li>
+          <li id="comment<%= comment.id %>"><p><%= comment.content %></p></li>
           <% if logged_in? && (current_user.admin? || comment.user_id == current_user.id) %>
           <div class="comment-buttons">
-            <!-- <%= link_to "Edit comment", edit_comment_path(comment),
-                                              class: "comment-button btn-xs btn-primary" %> -->
+            <%= link_to "Edit comment", edit_comment_path(comment),
+                                              remote: true,
+                                              class: "comment-button btn-xs btn-primary" %>
             <%= button_to "Delete comment", comment_path(comment),
                                                 remote: true,
                                                 method: :delete,

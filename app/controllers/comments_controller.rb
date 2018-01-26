@@ -23,11 +23,15 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @article = @comment.article
+    @article_comment = @comment
   end
 
   def update
-    if @comment.update(comment_params)
-      redirect_to comment_path(@comment)
+    @article = @comment.article
+    @article_comment = @comment
+    if @article_comment.update(comment_params)
+      redirect_to article_path(@article)
     else
       render 'edit'
     end
@@ -45,7 +49,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :article_id)
   end
 
   def require_user
