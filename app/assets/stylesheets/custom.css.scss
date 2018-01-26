@@ -84,8 +84,13 @@ $navbar-default-bg: black;
   letter-spacing: -1px;
 }
 
+.badge:hover {
+  background-color: #A177FF;
+}
+
 .badge a {
   color: #fcfcfc;
+  text-decoration: none;
 }
 
 .input_checkbox input {
@@ -103,11 +108,12 @@ $navbar-default-bg: black;
 .comment-button {
   letter-spacing: 0px;
   font-size: .6em;
+  text-decoration: none;
 }
 
 .form {
   display: inline;
-  font-size: .8em;
+  font-size: .95em;
 }
 
 footer {
