@@ -34,8 +34,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @article = @comment.article
     @comment.destroy
-    redirect_to article_path(@comment.article)
+    redirect_to article_path(@article)
   end
 
   private
