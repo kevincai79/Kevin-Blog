@@ -7,6 +7,6 @@
 - One article can be in one or many categories, one category can have amny articles. 
 -	By using Twilio API, as an admim(can add anyone if needed) will get a sms message when there is a new user sign up successfully.
 
-[![Kevin's blog](https://github.com/kevincai79/Kevin-Blog/blob/master/kevin-blog.jpg)](https://youtu.be/3-tS5GMVF_I)
+[![Kevin's blog](https://github.com/kevincai79/Kevin-Blog/blob/master/kevin-blog.jpg)](https://youtu.be/_V_SjGBaaEE)
 ## You can visit the blog here: [Kevin's Blog](https://lit-stream-38404.herokuapp.com/)
 
